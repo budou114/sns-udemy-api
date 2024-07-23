@@ -7,9 +7,12 @@ const PORT = 5050;
 
 const prisma = new PrismaClient();
 
+app.use(express.json());
+
 // 新規ユーザー登録API
 app.post("/api/auth/register", async (req, res) => {
     const { username, email, password } = req.body;
+    console.log(username, email, password);
 
     const hashedPassword = await bcrypt.hash(password, 10);
 

@@ -32,7 +32,7 @@ app.post("/api/auth/register", async (req, res) => {
 app.post("/api/auth/login", async (req, res) => {
     const { email, password } = req.body;
 
-    const user = prisma.user.findUnique({ where: { email }});
+    const user = await prisma.user.findUnique({ where: { email }});
 
     if (!user) {
         return res.status(401).json({ error: "そのユーザーは存在しません。" });

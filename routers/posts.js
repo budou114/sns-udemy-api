@@ -8,7 +8,7 @@ router.post("/post", async (req, res) => {
     const { content } = req.body;
 
     if (!content) {
-      return res.status(400).json({ message: "投稿内奥がありません。"});
+      return res.status(400).json({ message: "投稿内容がありません。"});
     }
 
     try {
@@ -25,8 +25,6 @@ router.post("/post", async (req, res) => {
         res.status(500).json({ message: "サーバーエラーです。"});
 
     }
-
-    return res.json({ user });
 });
 
 // 最新呟き取得用API

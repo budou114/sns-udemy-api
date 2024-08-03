@@ -13,10 +13,10 @@ router.get("/find", isAuthenticated, async (req, res) => {
         });
 
         if (!user) {
-            res.status(404).json({ error: "ユーザーが見つかりませんでした。" });
+            return res.status(404).json({ error: "ユーザーが見つかりませんでした。" });
         }
 
-        res.status(200).json({
+        return res.status(200).json({
             user: {
                 id: user.id,
                 email: user.email,

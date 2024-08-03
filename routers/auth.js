@@ -16,6 +16,12 @@ router.post("/register", async (req, res) => {
             username,
             email,
             password: hashedPassword,
+            profile: {
+                create: {
+                    bio: "初めまして",
+                    profileImagePath: "image.png"
+                }
+            }
         },
     });
 

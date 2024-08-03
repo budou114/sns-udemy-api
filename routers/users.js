@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 
 router.get("/find", isAuthenticated, async (req, res) => {
     try {
-        const user = await prisma.findUnique({
+        const user = await prisma.user.findUnique({
             where: {
                 id: req.userId,
             },
@@ -23,7 +23,7 @@ router.get("/find", isAuthenticated, async (req, res) => {
                 username: user.username
             },
         });
-    } catch {
+    } catch(error) {
         console.log(error);
         res.status(500).json({ message: "サーバーエラーです。" });
     }
